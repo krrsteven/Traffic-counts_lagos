@@ -1,0 +1,504 @@
+---
+title: "Gov't revenue and expenditure"
+author: "Steven k."
+date: "29/09/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r saving credebtials}
+Sys.setenv("plotly_username"="krrsteven")
+Sys.setenv("plotly_api_key"="OGv4WZqRg7TWArB5f5v6")
+```
+
+
+```{r loading the data}
+library(readr)
+mydata <- read_csv("C:/Users/DesignLab/Desktop/Steve_pc/cchub/Government/Data for gov/showcase/Copy of MCC-2012 - all.csv")
+```
+
+
+
+
+```{r}
+library(plotly)
+
+a <- list(
+  dtick = 1.5)
+p <- plot_ly(mydata, x = ~Hours) %>%
+  
+  add_trace(y = ~`Cars/Taxi_1`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2))  %>%
+  
+  add_trace(y = ~Bicycles_1, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = T) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_1`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = T) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_1`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = T)  %>%
+  
+  add_trace(y = ~Medium_trucks_1, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = T) %>%
+  
+  add_trace(y = ~Motorcycles_1, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = T) %>%
+ 
+  add_trace(y = ~Large_buses_1, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = T)  %>%
+  
+  add_trace(y = ~Mini_buses_1, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = T) %>%
+  
+  add_trace(y = ~Coasters_1, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = T) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_2`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2), visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_2, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_2`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_2`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_2, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_2, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_2, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_2, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_2, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+    
+  add_trace(y = ~`Cars/Taxi_3`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_3, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_3`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_3`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_3, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_3, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_3, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_3, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_3, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_4`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_4, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_4`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_4`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_4, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_4, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_4, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_4, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_4, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+
+  
+    add_trace(y = ~`Cars/Taxi_5`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_5, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_5`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_5`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_5, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_5, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_5, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_5, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_5, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_6`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_6, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_6`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_6`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_6, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_6, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_6, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_6, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_6, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+    
+  add_trace(y = ~`Cars/Taxi_7`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_7, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_7`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_7`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_7, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_7, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_7, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_7, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_7, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_8`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_8, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_8`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_8`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_8, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_8, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_8, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_8, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_8, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+  
+
+  
+    add_trace(y = ~`Cars/Taxi_9`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_9, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_9`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_9`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_9, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_9, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_9, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_9, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_9, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_10`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_10, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_10`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_10`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_10, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_10, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_10, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_10, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_10, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+    
+  add_trace(y = ~`Cars/Taxi_11`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_11, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_11`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_11`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_11, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_11, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_11, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_11, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_11, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_12`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_12, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_12`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_12`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_12, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_12, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_12, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_12, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_12, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+
+  
+    add_trace(y = ~`Cars/Taxi_13`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_13, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_13`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_13`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_13, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_13, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_13, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_13, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_13, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_14`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2), visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_14, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_14`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_14`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_14, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_14, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_14, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_14, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_14, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+    
+  add_trace(y = ~`Cars/Taxi_15`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_15, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_15`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_15`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_15, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_15, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_15, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_15, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_15, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_16`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_16, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_16`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_16`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_16, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_16, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_16, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_16, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_16, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+  
+ 
+     add_trace(y = ~`Cars/Taxi_17`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_17, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_17`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_17`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_17, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_17, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_17, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_17, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_17, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+    
+  add_trace(y = ~`Cars/Taxi_18`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_18, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_18`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_18`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_18, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_18, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_18, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_18, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_18, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+ 
+
+  
+    add_trace(y = ~`Cars/Taxi_19`, name='Cars/Taxi' ,type = 'scatter',  line = list(color = 'Red', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Bicycles_19, name = "Bicycles", type = 'scatter',  line = list(color = 'blue', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Small_trucks/Pickup/Small_van_19`, name = "Small trucks/Pickup/Small van", type = 'scatter',  line = list(color = 'green', width = 2),visible = F) %>%
+  
+  add_trace(y = ~`Heavy_trucks/Trailer/Container_19`, name='Heavy trucks/Trailer/Container' ,type = 'scatter',  line = list(color = 'purple', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Medium_trucks_19, name = "Medium trucks", type = 'scatter',  line = list(color = 'orange', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Motorcycles_19, name = "Motorcycles", type = 'scatter',  line = list(color = 'grey', width = 2),visible = F) %>%
+ 
+  add_trace(y = ~Large_buses_19, name='Large buses' ,type = 'scatter',  line = list(color = 'pink', width = 2),visible = F)  %>%
+  
+  add_trace(y = ~Mini_buses_19, name = "Mini buses", type = 'scatter',  line = list(color = 'Yellow', width = 2),visible = F) %>%
+  
+  add_trace(y = ~Coasters_19, name = "Coasters", type = 'scatter',  line = list(color = 'Red', width = 2),visible = F) %>%
+    
+layout(
+  
+    title = "main title)",
+    xaxis = a,
+    yaxis = list(title = ""),
+    updatemenus = list(
+
+      list(
+        type = 'dropdown',
+        y = 0.875,
+        buttons = list(
+          list(method = "restyle",
+               args = list("visible", list(TRUE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE,FALSE)),
+               label = "Agege"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, TRUE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE)),
+               label = "Ajeromi/Ifelodun"),
+
+          list(method = "restyle",
+               args = list("visible", list(FALSE,FALSE, TRUE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE)),
+               label = "Alimosho"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE, TRUE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE)),
+               label = "Amuwo Odofin"),
+
+          list(method = "restyle",
+               args = list("visible", list(FALSE,FALSE, FALSE,FALSE,TRUE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Apapa"),
+
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE, FALSE,FALSE,TRUE,FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE,FALSE, FALSE)),
+               label = "Badagry"),
+
+          list(method = "restyle",
+               args = list("visible", list(FALSE,FALSE, FALSE,FALSE,FALSE,FALSE, TRUE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE,FALSE)),
+               label = "Epe"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, TRUE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Eti Osa"),
+          
+
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, TRUE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Ibeju Lekki"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, TRUE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Ifako Ijaye"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, TRUE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Ikeja"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,TRUE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Ikorodu"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,TRUE,FALSE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Kosofe"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,TRUE, FALSE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Lagos Island"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, TRUE, FALSE,FALSE, FALSE, FALSE)),
+               label = "Lagos Mainland"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, TRUE,FALSE, FALSE, FALSE)),
+               label = "Mushin"),
+          
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,TRUE, FALSE, FALSE)),
+               
+               label = "Ojo"),
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, TRUE, FALSE)),
+               
+               label = "Oshodi Isolo"),
+          list(method = "restyle",
+               args = list("visible", list(FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,FALSE,FALSE,FALSE, FALSE, FALSE,FALSE, FALSE, TRUE)),
+               label = "Surulere")))
+    )
+  )
+p
+
+
+```
+
+
+```{r}
+# Create a shareable link to your chart
+chart_link = api_create(p, filename="data for gov")
+```
+
